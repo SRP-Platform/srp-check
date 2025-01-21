@@ -26,13 +26,13 @@ pipeline {
                 }
             }
         }
-        stage('Building') {
+        stage('cpplint') {
             steps {
                 script {
                     try {
                         echo 'Building the project...'
                         // Symulacja budowania (tu możesz dodać swoje kroki)
-                        sh 'sleep 5'
+                        sh './tools/cpplint/user_cpplint.sh'
 
                         // Ustaw status na "Success" po pomyślnym wykonaniu
                         def sha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
